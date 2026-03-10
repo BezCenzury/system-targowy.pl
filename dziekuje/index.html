@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <!-- Google Consent Mode V2 - Domyślne Ustawienia -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXX'); // ZAMIEŃ GTM-XXXX NA SWÓJ ID
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dziękuję - systemtargowy.pl</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Ccionka inter z google fonts dla podstrony RODO -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #ccc;
+            background-color: #111827;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            background: #1f2937;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+        <h1>Sukces!</h1>
+        <p>Dziękuję za wypełnienie formularza, potwierdź mail na skrzynce żeby odebrać ofertę</p>
+    </div>
+
+    <!-- Przycisk ponownego otwarcia banera -->
+    <div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+        <button data-cc="show-preferencesModal"
+            style="background-color: #2F3B4E; color: #fff; border: none; padding: 10px 15px; border-radius: 8px; font-family: Inter, sans-serif; font-size: 14px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 8px; transition: background-color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+                <path d="M8.5 8.5v.01"></path>
+                <path d="M16 12.5v.01"></path>
+                <path d="M12 16v.01"></path>
+                <path d="M11 12.5v.01"></path>
+            </svg>
+            Ustawienia Cookies
+        </button>
+    </div>
+
+    <!-- Skrypt Cookie Consent -->
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js';
+
+        CookieConsent.run({
+            guiOptions: {
+                consentModal: {
+                    layout: 'box',
+                    position: 'bottom right',
+                    equalWeightButtons: true,
+                    flipButtons: false
+                },
+                preferencesModal: {
+                    layout: 'box',
+                    position: 'right',
+                    equalWeightButtons: true,
+                    flipButtons: false
+                }
+            },
+            categories: {
+                necessary: { readOnly: true },
+                analytics: {},
+                marketing: {}
+            },
+            language: {
+                default: 'pl',
+                autoDetect: 'browser',
+                translations: {
+                    pl: {
+                        consentModal: {
+                            title: 'Szanujemy Twoją prywatność',
+                            description: 'Używamy plików cookies, aby zapewnić prawidłowe działanie strony systemtargowy.pl, analizować ruch oraz prowadzić działania reklamowe.',
+                            acceptAllBtn: 'Akceptuj wszystkie',
+                            acceptNecessaryBtn: 'Tylko niezbędne',
+                            showPreferencesBtn: 'Zarządzaj opcjami',
+                            footer: '<a href="../rodo/index.html" target="_blank">Polityka Prywatności</a>'
+                        },
+                        preferencesModal: {
+                            title: 'Preferencje plików cookies',
+                            acceptAllBtn: 'Akceptuj wszystkie',
+                            acceptNecessaryBtn: 'Tylko niezbędne',
+                            savePreferencesBtn: 'Zapisz ustawienia',
+                            closeIconLabel: 'Zamknij okno',
+                            sections: [
+                                {
+                                    title: 'Niezbędne pliki cookies',
+                                    description: 'Wymagane do poprawnego działania strony internetowej. Nie mogą zostać wyłączone.',
+                                    linkedCategory: 'necessary'
+                                },
+                                {
+                                    title: 'Analityka',
+                                    description: 'Pomagają nam zrozumieć, w jaki sposób odwiedzający korzystają ze strony (Google Analytics).',
+                                    linkedCategory: 'analytics'
+                                },
+                                {
+                                    title: 'Marketing',
+                                    description: 'Służą do śledzenia użytkowników w celu wyświetlania trafniejszych reklam (Meta Pixel).',
+                                    linkedCategory: 'marketing'
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            onConsent: function ({ cookie }) {
+                let analyticsStatus = cookie.categories.includes('analytics') ? 'granted' : 'denied';
+                let marketingStatus = cookie.categories.includes('marketing') ? 'granted' : 'denied';
+
+                gtag('consent', 'update', { 'analytics_storage': analyticsStatus });
+                gtag('consent', 'update', {
+                    'ad_storage': marketingStatus,
+                    'ad_user_data': marketingStatus,
+                    'ad_personalization': marketingStatus
+                });
+
+                dataLayer.push({
+                    'event': 'consent_ready',
+                    'consent_analytics': analyticsStatus,
+                    'consent_marketing': marketingStatus
+                });
+            },
+            onChange: function ({ cookie, changedCategories }) {
+                let analyticsStatus = cookie.categories.includes('analytics') ? 'granted' : 'denied';
+                let marketingStatus = cookie.categories.includes('marketing') ? 'granted' : 'denied';
+
+                gtag('consent', 'update', { 'analytics_storage': analyticsStatus });
+                gtag('consent', 'update', {
+                    'ad_storage': marketingStatus,
+                    'ad_user_data': marketingStatus,
+                    'ad_personalization': marketingStatus
+                });
+
+                dataLayer.push({
+                    'event': 'consent_update',
+                    'consent_analytics': analyticsStatus,
+                    'consent_marketing': marketingStatus
+                });
+
+                if (changedCategories.includes('analytics') && analyticsStatus === 'denied') {
+                    document.cookie.split(";").forEach(function (c) {
+                        let name = c.trim().split("=")[0];
+                        if (name.startsWith('_ga') || name.startsWith('_gid')) {
+                            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname.replace('www.', '') + ";";
+                        }
+                    });
+                }
+                if (changedCategories.includes('marketing') && marketingStatus === 'denied') {
+                    document.cookie.split(";").forEach(function (c) {
+                        let name = c.trim().split("=")[0];
+                        if (name.startsWith('_fbp') || name.startsWith('_gcl')) {
+                            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname.replace('www.', '') + ";";
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

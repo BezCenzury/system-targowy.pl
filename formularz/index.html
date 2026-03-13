@@ -27,19 +27,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- MailerLite Universal -->
-    <script>
-        (function (w, d, e, u, f, l, n) {
-            w[f] = w[f] || function () {
-                (w[f].q = w[f].q || [])
-                .push(arguments);
-            }, l = d.createElement(e), l.async = 1, l.src = u,
-            n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-        })
-            (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-        ml('account', '2157404');
-    </script>
-    <!-- End MailerLite Universal -->
 
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
@@ -50,8 +37,8 @@
 
     <style>
         body {
-            background-color: #111827;
-            /* Ciemne tło zgodne z marką */
+            background-color: #f9fafb;
+            /* Jasne tło */
             margin: 0;
             padding: 0;
             display: flex;
@@ -75,9 +62,203 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="form-container">
-        <!-- Formularz MailerLite -->
-        <div class="ml-embedded" data-form="D79yRZ"></div>
+        <div class="custom-form-wrapper" style="background-color: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); color: #111827; font-family: Inter, sans-serif; position: relative;">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <span style="font-size: 18px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 1px;">System Targowy</span>
+            </div>
+            <h2 style="font-size: 28px; font-weight: 700; margin-top: 0; margin-bottom: 16px; color: #111827; text-align: center;">Odbierz wideo prezentację Systemu Targowego</h2>
+            <p style="font-size: 16px; color: #4B5563; margin-bottom: 32px; text-align: center; line-height: 1.5;">Zobacz w jaki sposób działa System Targowy i jak pomaga firmom wystawiającym się na targach.</p>
+            
+            <form id="customLeadForm">
+                <div style="margin-bottom: 20px;">
+                    <label for="fname" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: #374151;">Imię *</label>
+                    <input type="text" id="fname" name="fname" required style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; background-color: #f9fafb; color: #111827; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 16px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#D1D5DB'">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="company" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: #374151;">Nazwa Firmy</label>
+                    <input type="text" id="company" name="company" style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; background-color: #f9fafb; color: #111827; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 16px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#D1D5DB'">
+                </div>
+                
+                <div style="margin-bottom: 24px;">
+                    <label for="email" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: #374151;">E-mail *</label>
+                    <!-- Walidacja HTML5 dla adresu e-mail, w tym test na końcówkę .pl / .com -->
+                    <input type="email" id="email" name="email" required pattern="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$" title="Wprowadź poprawny adres e-mail (np. nazwa@domena.pl), musi zawierać @ i poprawną końcówkę." style="width: 100%; padding: 12px; border: 1px solid #D1D5DB; border-radius: 8px; background-color: #f9fafb; color: #111827; box-sizing: border-box; font-family: Inter, sans-serif; font-size: 16px; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#D1D5DB'">
+                </div>
+
+                <!-- Ukryty honeypot dla botów - boty najczęściej wypełniają wszystkie lub większość pól ukrytych/nie ukrytych -->
+                <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                    <label for="website_url_check">Ignoruj to pole</label>
+                    <input type="checkbox" id="website_url_check" name="website_url_check" tabindex="-1" autocomplete="off">
+                </div>
+                
+                <div style="margin-bottom: 32px; display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="consent" name="consent" required style="margin-top: 4px; margin-right: 12px; width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; accent-color: #3b82f6;">
+                    <label for="consent" style="font-size: 12px; color: #4B5563; line-height: 1.6; cursor: pointer;">
+                        Wyrażasz zgodę na otrzymywanie informacji handlowych środkami komunikacji elektronicznej wysyłanymi przez systemtargowy.pl oraz na wykorzystanie komunikacji email w celach marketingowych (<a href="../rodo/" target="_blank" style="color: #2563EB; text-decoration: underline;">Polityka Prywatności</a>) *
+                    </label>
+                </div>
+                
+                <button type="submit" id="submitBtn" style="width: 100%; background-color: #2563EB; color: #ffffff; border: none; padding: 14px; border-radius: 8px; font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s, opacity 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px;" onmouseover="this.style.backgroundColor='#1D4ED8'" onmouseout="this.style.backgroundColor='#2563EB'">
+                    <span>Odbierz wideo prezentację</span>
+                </button>
+                <div id="formMessage" style="margin-top: 16px; font-size: 14px; text-align: center; display: none;"></div>
+            </form>
+        </div>
     </div>
+
+    <!-- Logika formularza JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('customLeadForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            const honeypot = document.getElementById('website_url_check');
+            const emailInput = document.getElementById('email');
+            
+            // Regex dla walidacji e-mail
+            const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+            
+            const getCurrentTimeFormatted = () => {
+                const now = new Date();
+                return now.toISOString();
+            };
+
+            const showMessage = (msg, isError = false) => {
+                formMessage.style.display = 'block';
+                formMessage.style.color = isError ? '#EF4444' : '#10B981';
+                formMessage.textContent = msg;
+            };
+
+            const setButtonLoading = (isLoading) => {
+                if (isLoading) {
+                    submitBtn.style.opacity = '0.7';
+                    submitBtn.style.cursor = 'not-allowed';
+                    submitBtn.innerHTML = '<svg style="animation: spin 1s linear infinite; height: 20px; width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Wysyłanie...';
+                    submitBtn.disabled = true;
+                } else {
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    submitBtn.innerHTML = '<span>Odbierz wideo prezentację</span>';
+                    submitBtn.disabled = false;
+                }
+            };
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            const getIP = async () => {
+                try {
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    return data.ip;
+                } catch (e) {
+                    console.warn('Nie udało się pobrać IP', e);
+                    return 'Nieznany';
+                }
+            };
+
+            const saveToLocalQueue = (payload) => {
+                let queue = [];
+                try {
+                    const stored = localStorage.getItem('failedFormSubmissions');
+                    if (stored) {
+                        queue = JSON.parse(stored);
+                    }
+                } catch (e) {}
+                queue.push(payload);
+                localStorage.setItem('failedFormSubmissions', JSON.stringify(queue));
+            };
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Honeypot dla botów
+                if (honeypot.checked) {
+                    // Ciche odrzucenie botów
+                    console.log('Bot detected');
+                    return;
+                }
+
+                formMessage.style.display = 'none';
+                const email = emailInput.value.trim();
+                
+                // Dogłębna walidacja w JS 
+                if (!emailRegex.test(email)) {
+                    showMessage('Adres e-mail jest w niepoprawnej formie (brak @ lub .pl/.com na końcu).', true);
+                    return;
+                }
+
+                const fname = document.getElementById('fname').value.trim();
+                const company = document.getElementById('company').value.trim();
+
+                setButtonLoading(true);
+                
+                const ip = await getIP();
+                const time = getCurrentTimeFormatted();
+
+                // Format JSON dokładnie według wytycznych
+                const payload = {
+                    "Imię": fname,
+                    "Adres e-mail": email,
+                    "IP urządzenia": ip,
+                    "Czas wysłania formularza": time
+                };
+                // "Nazwa firmy (o ile została podana)"
+                if (company !== "") {
+                    payload["Nazwa firmy"] = company;
+                }
+
+                if (!navigator.onLine) {
+                    // Tryb offline
+                    saveToLocalQueue(payload);
+                    setButtonLoading(false);
+                    window.location.href = '../dziekuje/index.html';
+                    return;
+                }
+
+                try {
+                    const webhookUrl = 'https://hook.eu2.make.com/g0bia9g333fehks9pjyh2ns8gdtkbx7e';
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Błąd przy wysyłce');
+                    }
+                    
+                    window.location.href = '../dziekuje/index.html';
+                } catch (error) {
+                    console.error('Błąd wysyłki:', error);
+                    // Błąd pomimo bycia "online" -> do kolejki offline i przekierowanie
+                    saveToLocalQueue(payload);
+                    setButtonLoading(false);
+                    window.location.href = '../dziekuje/index.html';
+                }
+            });
+            
+            // Reaktywna wizualizacja błędu pola email 
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value !== '' && !emailRegex.test(emailInput.value)) {
+                    emailInput.style.borderColor = '#EF4444'; 
+                } else if (emailInput.value !== '') {
+                    emailInput.style.borderColor = '#10B981';
+                } else {
+                    emailInput.style.borderColor = '#374151';
+                }
+            });
+        });
+    </script>
 
     <!-- Przycisk ponownego otwarcia banera -->
     <div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">

@@ -76,6 +76,13 @@
         strong {
             color: #111827;
         }
+
+        #countdown {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563EB;
+            margin-top: 24px;
+        }
     </style>
 </head>
 
@@ -87,7 +94,8 @@
 
     <div class="container">
         <h1>Sukces!</h1>
-        <p>Dziękuję za wypełnienie formularza, link do filmu został wysłany na twój adres e-mail, sprawdź zakładkę Oferty na swojej skrzynce mailowej.</p>
+        <p>Dziękuję za wypełnienie formularza, za chwilę zobaczysz pełnię możliwości Systemu Targowego.</p>
+        <div id="countdown">3s</div>
     </div>
 
     <!-- Przycisk ponownego otwarcia banera -->
@@ -226,6 +234,20 @@
         });
     </script>
     <script src="../js/main.js"></script>
+    <script>
+        let timeLeft = 3;
+        const countdownElement = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft + 's';
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = 'https://systemtargowy.pl';
+            }
+        }, 1000);
+    </script>
 </body>
 
 </html>

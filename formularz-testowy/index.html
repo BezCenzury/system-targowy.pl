@@ -590,15 +590,19 @@
                 }
             };
 
-            const getIP = async () => {
+            let cachedIP = 'Brak danych';
+            
+            // Pobieramy IP w tle zaraz po załadowaniu strony, aby nie opóźniać wysyłki
+            const fetchIP = async () => {
                 try {
                     const response = await fetch('https://api.ipify.org?format=json');
                     const data = await response.json();
-                    return data.ip;
+                    cachedIP = data.ip;
                 } catch (e) {
-                    return 'Brak danych';
+                    console.warn('Nie udało się pobrać IP w tle');
                 }
             };
+            fetchIP();
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -619,14 +623,13 @@
                 }
 
                 setLoading(true);
-                const userIP = await getIP();
 
                 const payload = {
                     email: formData.get('email'),
                     phone: formattedPhone,
                     voivodeship: formData.get('voivodeship'),
                     message: formData.get('message'),
-                    ip: userIP,
+                    ip: cachedIP,
                     timestamp: new Date().toISOString(),
                     source: "formularz-testowy-pompy"
                 };
@@ -658,6 +661,9 @@
             });
 
             const showSuccessState = () => {
+                const formHeader = document.querySelector('.form-header');
+                if (formHeader) formHeader.style.display = 'none';
+                
                 form.innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
                         <div style="width: 80px; height: 80px; background-color: #f0fdf4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid #bbf7d0;">

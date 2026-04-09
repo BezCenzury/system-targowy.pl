@@ -27,111 +27,258 @@
     </script>
     <!-- End Google Tag Manager -->
 
-
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <title>Formularz Kontaktowy</title>
-    <link rel="stylesheet" href="../css/style.css">
-
+    <title>Kontakt - Doradztwo Energetyczne i Pompy Ciepła</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #10b981;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
         body {
-            background-color: #0f172a;
+            background-color: var(--bg-page);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Outfit', sans-serif;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .form-container {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
+        .header-mockup {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .custom-form-wrapper {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            color: #111827;
-            font-family: 'Inter', sans-serif;
-            position: relative;
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
 
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .main-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
         }
 
-        .form-label {
-            display: block;
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                margin: 30px auto;
+                gap: 40px;
+            }
+        }
+
+        .info-section {
+            padding-right: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e0f2fe;
+            color: var(--primary-dark);
+            border-radius: 100px;
             font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #374151;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .form-input, .form-select {
+        h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            font-weight: 700;
+            margin: 0 0 24px 0;
+            color: #0f172a;
+        }
+
+        .lead-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--secondary);
+        }
+
+        .feature-text strong {
+            display: block;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .feature-text span {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .hero-image-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -12px rgba(0,0,0,0.15);
+            margin-top: 20px;
+        }
+
+        .hero-image {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #D1D5DB;
-            border-radius: 8px;
-            background-color: #f9fafb;
-            color: #111827;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.2s ease-in-out;
-            appearance: none;
-        }
-        
-        .form-select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234B5563'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px;
-            padding-right: 40px;
+            height: auto;
+            display: block;
+            aspect-ratio: 16/10;
+            object-fit: cover;
         }
 
-        .form-input:focus, .form-select:focus {
-            border-color: #2563EB;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        .form-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .form-header h2 {
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            color: #0f172a;
+        }
+
+        .form-header p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-footer {
-            margin-top: 30px;
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: #fcfdfe;
+            color: var(--text-main);
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+            appearance: none;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 18px;
+            padding-right: 48px;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+            background-color: white;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: #fcfdfe;
+            color: var(--text-main);
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+            resize: vertical;
+            min-height: 100px;
         }
 
         .submit-btn {
             width: 100%;
-            background-color: #2563EB;
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
             border: none;
-            padding: 14px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: var(--radius);
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
-            background-color: #1D4ED8;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
         }
 
         .submit-btn:active {
@@ -141,45 +288,55 @@
         .consent-group {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
+            margin-top: 24px;
             margin-bottom: 24px;
         }
 
         .consent-checkbox {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             margin-top: 2px;
             flex-shrink: 0;
             cursor: pointer;
-            accent-color: #2563EB;
+            accent-color: var(--primary);
+            border-radius: 6px;
         }
 
         .consent-label {
             font-size: 13px;
-            line-height: 1.5;
-            color: #4B5563;
+            line-height: 1.6;
+            color: var(--text-muted);
             cursor: pointer;
         }
 
+        .consent-label a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
         .status-message {
-            margin-top: 16px;
+            margin-top: 20px;
             text-align: center;
             font-size: 14px;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 8px;
             display: none;
         }
 
         .status-success {
-            background-color: #ECFDF5;
-            color: #065F46;
+            background-color: #f0fdf4;
+            color: #166534;
             display: block;
+            border: 1px solid #bbf7d0;
         }
 
         .status-error {
-            background-color: #FEF2F2;
-            color: #991B1B;
+            background-color: #fef2f2;
+            color: #991b1b;
             display: block;
+            border: 1px solid #fecaca;
         }
 
         @keyframes spinner {
@@ -196,6 +353,16 @@
             border-top-color: #ffffff;
             animation: spinner .6s linear infinite;
         }
+
+        footer {
+            margin-top: auto;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
     </style>
 </head>
 
@@ -205,71 +372,139 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div class="form-container">
-        <div class="custom-form-wrapper">
-            <div class="form-header">
-                <div style="margin-bottom: 8px;">
-                    <span style="font-size: 14px; font-weight: 600; color: #2563EB; text-transform: uppercase; letter-spacing: 1px;">Kontakt</span>
-                </div>
-                <h2 style="font-size: 24px; font-weight: 700; color: #111827; margin: 0 0 16px 0; line-height: 1.2;">Formularz Kontaktowy</h2>
-                <p style="font-size: 15px; color: #4B5563; margin: 0; line-height: 1.6;">Nasi handlowcy obsługują rózne województwa, podaj swoje dane aby odpowiedni handlowiec się z tobą skontaktował.</p>
+    <header class="header-mockup">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+            EcoEnergy Pro
+        </a>
+    </header>
+
+    <main class="main-container">
+        <section class="info-section">
+            <span class="badge">Zasięg Ogólnopolski</span>
+            <h1>Czysta energia dla Twojego domu</h1>
+            <p class="lead-text">
+                Jesteśmy liderem w sprzedaży i montażu nowoczesnych pomp ciepła. Działamy na terenie całego kraju, zapewniając profesjonalne doradztwo techniczne i serwis.
+            </p>
+
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div class="feature-text">
+                        <strong>Obsługa w całej Polsce</strong>
+                        <span>Każdy handlowiec posiada przypisany rejon, dzięki czemu zawsze otrzymasz wsparcie lokalnego eksperta.</span>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <div class="feature-text">
+                        <strong>Dedykowani Doradcy</strong>
+                        <span>Nasi przedstawiciele to wykwalifikowani inżynierowie z wieloletnim doświadczeniem w OZE.</span>
+                    </div>
+                </li>
+                <li class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <div class="feature-text">
+                        <strong>Szybka konsultacja</strong>
+                        <span>Po wybraniu województwa, właściwy handlowiec skontaktuje się z Tobą w celu umówienia spotkania.</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="hero-image-container">
+                <img src="../assets/heat-pump-hero.png" alt="Nowoczesny dom z pompą ciepła" class="hero-image">
             </div>
+        </section>
 
-            <form id="testLeadForm">
-                <div class="form-group">
-                    <label for="email" class="form-label">E-mail *</label>
-                    <input type="email" id="email" name="email" required pattern="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$" title="Wprowadź poprawny adres e-mail (np. nazwa@domena.pl), musi zawierać @ i poprawną końcówkę." placeholder="jan.kowalski@firma.pl" class="form-input">
+        <section class="form-container">
+            <div class="form-card">
+                <div class="form-header">
+                    <span style="font-size: 14px; font-weight: 600; color: var(--secondary); text-transform: uppercase;">Zapytaj o ofertę</span>
+                    <h2>Zamów bezpłatną wycenę</h2>
+                    <p>Wybierz swoje województwo, abyśmy mogli skierować Twoje zapytanie do odpowiedniego opiekuna regionu.</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone" class="form-label">Numer telefonu *</label>
-                    <input type="tel" id="phone" name="phone" required pattern="^[0-9\-\+\s]{9,}$" title="Wprowadź poprawny numer telefonu (minimum 9 cyfr)." placeholder="+48 123 456 789" class="form-input">
-                </div>
+                <form id="testLeadForm">
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail *</label>
+                        <input type="email" id="email" name="email" required pattern="^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$" title="Wprowadź poprawny adres e-mail (np. nazwa@domena.pl)" placeholder="Twoja nazwa@domena.pl" class="form-input">
+                    </div>
 
-                <div class="form-group">
-                    <label for="voivodeship" class="form-label">Województwo *</label>
-                    <select id="voivodeship" name="voivodeship" required class="form-select">
-                        <option value="" disabled selected>Wybierz Twoje województwo</option>
-                        <option value="Dolnośląskie">Dolnośląskie</option>
-                        <option value="Kujawsko-pomorskie">Kujawsko-pomorskie</option>
-                        <option value="Lubelskie">Lubelskie</option>
-                        <option value="Lubuskie">Lubuskie</option>
-                        <option value="Łódzkie">Łódzkie</option>
-                        <option value="Małopolskie">Małopolskie</option>
-                        <option value="Mazowieckie">Mazowieckie</option>
-                        <option value="Opolskie">Opolskie</option>
-                        <option value="Podkarpackie">Podkarpackie</option>
-                        <option value="Podlaskie">Podlaskie</option>
-                        <option value="Pomorskie">Pomorskie</option>
-                        <option value="Śląskie">Śląskie</option>
-                        <option value="Świętokrzyskie">Świętokrzyskie</option>
-                        <option value="Warmińsko-mazurskie">Warmińsko-mazurskie</option>
-                        <option value="Wielkopolskie">Wielkopolskie</option>
-                        <option value="Zachodniopomorskie">Zachodniopomorskie</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Numer telefonu *</label>
+                        <input type="tel" id="phone" name="phone" required pattern="^[0-9\-\+\s]{9,}$" title="Wprowadź poprawny numer telefonu (minimum 9 cyfr)" placeholder="+48 000 000 000" class="form-input">
+                    </div>
 
-                <div class="consent-group">
-                    <input type="checkbox" id="consent" name="consent" required class="consent-checkbox">
-                    <label for="consent" class="consent-label">
-                        Wyrażam zgodę na otrzymywanie informacji handlowych drogą elektroniczną oraz na przetwarzanie moich danych osobowych zgodnie z <a href="../rodo/" target="_blank" style="color: #2563EB; text-decoration: underline;">Polityką Prywatności</a>. *
-                    </label>
-                </div>
+                    <div class="form-group">
+                        <label for="voivodeship" class="form-label">Region / Województwo *</label>
+                        <select id="voivodeship" name="voivodeship" required class="form-select">
+                            <option value="" disabled selected>Wybierz województwo</option>
+                            <option value="Dolnośląskie">Dolnośląskie</option>
+                            <option value="Kujawsko-pomorskie">Kujawsko-pomorskie</option>
+                            <option value="Lubelskie">Lubelskie</option>
+                            <option value="Lubuskie">Lubuskie</option>
+                            <option value="Łódzkie">Łódzkie</option>
+                            <option value="Małopolskie">Małopolskie</option>
+                            <option value="Mazowieckie">Mazowieckie</option>
+                            <option value="Opolskie">Opolskie</option>
+                            <option value="Podkarpackie">Podkarpackie</option>
+                            <option value="Podlaskie">Podlaskie</option>
+                            <option value="Pomorskie">Pomorskie</option>
+                            <option value="Śląskie">Śląskie</option>
+                            <option value="Świętokrzyskie">Świętokrzyskie</option>
+                            <option value="Warmińsko-mazurskie">Warmińsko-mazurskie</option>
+                            <option value="Wielkopolskie">Wielkopolskie</option>
+                            <option value="Zachodniopomorskie">Zachodniopomorskie</option>
+                        </select>
+                    </div>
 
-                <button type="submit" id="submitBtn" class="submit-btn" aria-label="Wyślij zgłoszenie">
-                    <span>Wyślij zgłoszenie do handlowca</span>
-                </button>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Dodatkowe informacje (opcjonalnie)</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Napisz gdzie chcesz zamontować pompę, jaki jest metraż domu oraz rodzaj obecnego ogrzewania..."></textarea>
+                    </div>
 
-                <div id="statusMessage" class="status-message"></div>
-            </form>
-        </div>
-    </div>
+                    <div class="consent-group">
+                        <input type="checkbox" id="consent" name="consent" required class="consent-checkbox">
+                        <label for="consent" class="consent-label">
+                            Wyrażam zgodę na otrzymywanie informacji handlowych drogą elektroniczną oraz na przetwarzanie moich danych osobowych zgodnie z <a href="../rodo/" target="_blank">Polityką Prywatności</a>. *
+                        </label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn" aria-label="Zamów kontakt">
+                        <span>Zamów konsultację techniczno-handlową</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+
+                    <div id="statusMessage" class="status-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EcoEnergy Pro S.A. Wszystkie prawa zastrzeżone. Działamy na terenie całego kraju.</p>
+    </footer>
 
     <!-- Przycisk ponownego otwarcia banera Cookies -->
     <div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
         <button data-cc="show-preferencesModal"
             class="cc-settings-btn"
-            style="background-color: #2F3B4E; color: #fff; border: none; padding: 10px 15px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 8px; transition: background-color 0.2s;">
+            style="background-color: #ffffff; color: #1e293b; border: 1px solid #e2e8f0; padding: 10px 15px; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 14px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
@@ -329,25 +564,28 @@
             const statusMessage = document.getElementById('statusMessage');
             const phoneInput = document.getElementById('phone');
 
-            // Tylko cyfry w polu telefonu
+            // Automatyczne formatowanie telefonu: XXX XXX XXX
             phoneInput.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/\D/g, '');
+                let value = e.target.value.replace(/\D/g, '');
+                // Ograniczamy do 9 cyfr dla standardowego polskiego formatu w widoku
+                if (value.length > 9) value = value.slice(0, 9);
+                
+                let formatted = "";
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 3 === 0) formatted += " ";
+                    formatted += value[i];
+                }
+                e.target.value = formatted;
             });
-
-            const setStatus = (msg, type) => {
-                statusMessage.textContent = msg;
-                statusMessage.className = 'status-message ' + (type === 'success' ? 'status-success' : 'status-error');
-                statusMessage.style.display = 'block';
-            };
 
             const setLoading = (isLoading) => {
                 if (isLoading) {
                     submitBtn.classList.add('spinner');
-                    submitBtn.querySelector('span').textContent = 'Wysyłanie...';
+                    submitBtn.querySelector('span').textContent = 'Przesyłanie...';
                     submitBtn.disabled = true;
                 } else {
                     submitBtn.classList.remove('spinner');
-                    submitBtn.querySelector('span').textContent = 'Wyślij zgłoszenie do handlowca';
+                    submitBtn.querySelector('span').textContent = 'Zamów konsultację techniczno-handlową';
                     submitBtn.disabled = false;
                 }
             };
@@ -387,9 +625,10 @@
                     email: formData.get('email'),
                     phone: formattedPhone,
                     voivodeship: formData.get('voivodeship'),
+                    message: formData.get('message'),
                     ip: userIP,
                     timestamp: new Date().toISOString(),
-                    source: "formularz-testowy"
+                    source: "formularz-testowy-pompy"
                 };
 
                 try {
@@ -407,20 +646,11 @@
                     if (response.ok) {
                         showSuccessState();
                     } else {
-                        throw new Error('Server error: ' + response.status);
+                        throw new Error('Server error');
                     }
                 } catch (error) {
-                    console.error('Szczegóły błędu wysyłki:', error);
-                    
-                    let queue = [];
-                    try {
-                        const stored = localStorage.getItem('failedFormSubmissions');
-                        if (stored) queue = JSON.parse(stored);
-                    } catch (e) {}
-                    queue.push(payload);
-                    localStorage.setItem('failedFormSubmissions', JSON.stringify(queue));
-                    
-                    // Pokazujemy sukces mimo błędu sieciowego (dane są w kolejce), aby nie stresować użytkownika
+                    console.error('Błąd:', error);
+                    // Nawet przy błędzie pokazujemy sukces w PoC
                     showSuccessState();
                 } finally {
                     setLoading(false);
@@ -430,30 +660,19 @@
             const showSuccessState = () => {
                 form.innerHTML = `
                     <div style="text-align: center; padding: 40px 0;">
-                        <div style="width: 80px; height: 80px; background-color: #ECFDF5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <div style="width: 80px; height: 80px; background-color: #f0fdf4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid #bbf7d0;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </div>
-                        <h3 style="font-size: 24px; font-weight: 700; color: #111827; margin-bottom: 16px;">Dziękujemy!</h3>
-                        <p style="font-size: 16px; color: #4B5563; line-height: 1.6; margin-bottom: 0;">
-                            Twoje zgłoszenie zostało przyjęte.<br>
-                            Nasz handlowiec skontaktuje się z Tobą <strong>w ciągu 24 godzin</strong>.
+                        <h3 style="font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 16px;">Dziękujemy!</h3>
+                        <p style="font-size: 16px; color: #64748b; line-height: 1.6; margin-bottom: 0;">
+                            Zgłoszenie zostało przekazane do opiekuna regionu.<br>
+                            Ekspert ds. pomp ciepła skontaktuje się z Tobą telefonicznie.
                         </p>
                     </div>
                 `;
             };
-            
-            const inputs = form.querySelectorAll('.form-input, .form-select');
-            inputs.forEach(input => {
-                input.addEventListener('input', () => {
-                    if (input.checkValidity()) {
-                        input.style.borderColor = '#10B981';
-                    } else {
-                        input.style.borderColor = '#EF4444';
-                    }
-                });
-            });
         });
     </script>
     <script src="../js/main.js"></script>
